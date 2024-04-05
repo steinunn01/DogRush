@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.Rectangle?>
+<!--  custom component -->
+
+<?import javafx.scene.shape.Rectangle?>
+<fx:root fitHeight="19.5" fitWidth="40.0" type="javafx.scene.image.ImageView" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
+<Image preserveRatio="true" requestedHeight="19.5" url="@css/bein.png" />
+<clip><Rectangle height="19.5" width="40"/> </clip>
+</fx:root>

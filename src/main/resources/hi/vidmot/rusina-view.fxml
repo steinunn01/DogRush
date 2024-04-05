@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.Rectangle?>
+<!--  custom component -->
+
+<?import javafx.scene.shape.Rectangle?>
+<fx:root fitHeight="31.2" fitWidth="32.0" type="javafx.scene.image.ImageView" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
+    <Image preserveRatio="true" requestedHeight="31.2" url="@css/rusina.png" />
+    <clip><Rectangle height="31.2" width="32"/> </clip>
+</fx:root>
