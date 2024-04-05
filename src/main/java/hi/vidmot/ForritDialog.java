@@ -12,7 +12,7 @@ import javafx.scene.control.ButtonType;
  *****************************************************************************/
 public class ForritDialog extends Alert {
     private static final String titill = "DogRush!";
-    private static final String haus = "Höfundur: Steinunn María Bergþórsdóttir. ";
+    private static final String haus = "Höfundar: Steinunn og Sigurjón ";
     private static final String lysing = "DogRush var forritað árið 2024. \n" +
             "DogRush er leikur sem snýst um hjálpa voffa" +
             " að safna ákveðnum fjölda stiga áður en tíminn rennur út. " +
