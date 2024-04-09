@@ -59,7 +59,7 @@
                         <Font size="26.0" />
                     </font>
                 </Label>
-                <Label fx:id="fxStada" layoutX="330.0" layoutY="14.0" prefHeight="40.0" prefWidth="167.0" text="Leik lýkur eftir:">
+                <Label fx:id="fxStada" layoutX="330.0" layoutY="14.0" prefHeight="40.0" prefWidth="199.0" text="Leik lýkur eftir:">
                     <font>
                         <Font size="26.0" />
                     </font>
