@@ -14,7 +14,7 @@ import javafx.scene.control.ToggleGroup;
  *****************************************************************************/
 public class MenuController {
     @FXML
-    private GoldController goldController;
+    private DogController dogController;
     @FXML
     private ToggleGroup toggleGroup1;
     @FXML
@@ -28,55 +28,55 @@ public class MenuController {
     }
 
     /**
-     * Notandi biður um nýjan leik og GoldController látinn vita
+     * Notandi biður um nýjan leik og DogController látinn vita
      * @param actionEvent
      */
     @FXML
     public void onNyrLeikur(ActionEvent actionEvent) {
-        goldController.nyrLeikur();
+        dogController.nyrLeikur();
     }
 
     /**
-     * Notandi biður um að hætta leik og GoldController látinn vita
+     * Notandi biður um að hætta leik og DogController látinn vita
      * @param actionEvent
      */
     @FXML
     public void onHaetta(ActionEvent actionEvent) {
-        goldController.leikLokid(" ");
+        dogController.leikLokid(" ");
     }
 
     /**
      * Tenging sett á leikborðið
      * @param aThis
      */
-    public void setGoldController(GoldController aThis) {
-        goldController = aThis;
+    public void setDogController(DogController aThis) {
+        dogController = aThis;
     }
 
     /**
      * Togglegroup sé um að aðeins eitt eriðleikastig er valið í einu
-     * GoldController látinn vita hvaða erfiðaleikastig notandi valdi
+     * DogController látinn vita hvaða erfiðaleikastig notandi valdi
      * @param actionEvent
      */
     @FXML
     public void onErfidleikastig(ActionEvent actionEvent) {
         RadioMenuItem selectedToggle = (RadioMenuItem) toggleGroup1.getSelectedToggle();
-        goldController.erfidaleikaHandler(selectedToggle.getText());
+        dogController.erfidaleikaHandler(selectedToggle.getText());
     }
 
     @FXML
     public void onValidVoffa(ActionEvent actionEvent) {
         RadioMenuItem selectedToggle = (RadioMenuItem) toggleGroup2.getSelectedToggle();
-        goldController.veljaVoffaHandler(selectedToggle.getText());
+        dogController.veljaVoffaHandler(selectedToggle.getText());
     }
 
     /**
-     * Notandi biður um upplýsingar um forritið og GoldController látinn vita
+     * Notandi biður um upplýsingar um forritið og DogController látinn vita
      * @param actionEvent
      */
     @FXML
     public void onUmForritid(ActionEvent actionEvent) {
-        goldController.umForritidHandler();
+        dogController.umForritidHandler();
     }
 
 }

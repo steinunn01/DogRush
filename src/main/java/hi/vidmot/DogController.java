@@ -8,10 +8,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -26,7 +23,7 @@ import java.util.Optional;
  * Lýsing : Controller klasinn fyrir GoldRush leik - notandi getur fært grafara til
  * með örvatökkum í eftirfarandi áttir: upp, niður, hægri, vinstri.
  *****************************************************************************/
-public class GoldController {
+public class DogController {
 
     // fastar
     private int bendir = 0; // hvaða erfiðleikastig er valið [0;2]
@@ -80,7 +77,7 @@ public class GoldController {
         fxRushTimi.textProperty().bind(klukka.nidurtalProperty().asString());
         fxRushTimi.setFocusTraversable(false);
         fxSuperDog.setFocusTraversable(false);
-        menuStyringController.setGoldController(this);
+        menuStyringController.setDogController(this);
     }
 
 
@@ -157,7 +154,6 @@ public class GoldController {
                     }
                     Start = false;
                 }
-                // Action to be performed every second
                 if (klukka.getNidurtal() == 0) {
                     leikLokid("Æ æ, tíminn er búinn :( ");
                     klukka.stop(); // tíminn er búinn
@@ -180,6 +176,10 @@ public class GoldController {
      */
     @FXML
     public void onPlayPause(ActionEvent actionEvent) {
+        pasuTakki();
+    }
+
+    public void pasuTakki() {
         if (fxPasa.getText().equals("Start")) {
             nyrLeikur();
             startTimi();
@@ -208,13 +208,34 @@ public class GoldController {
     }
 
     /**
+     * Stöðvar leik og sýnir sigur Dialog.
+     */
+    public void sigur() {
+        stopTimi();
+        Platform.runLater(() -> synaSigur());
+    }
+
+    /**
+     * Spyr notanda hvort hann vilji leika annan leik. Hefur nýjan leik ef svo er.
+     * Annars er leiknum hætt.
+     */
+    private void synaSigur() {
+        Alert a = new SigurDialog();
+        Optional<ButtonType> u = a.showAndWait();
+        if (u.isPresent() && !u.get().getButtonData().isCancelButton())
+            nyrLeikur();
+        else
+            System.exit(0);
+    }
+
+    /**
      * Spyr notanda hvort hann vilji leika annan leik. Hefur nýjan leik ef svo er.
      * Annars er leiknum hætt.
      *
      * @param s skilaboð
      */
     private void synaAlert(String s) {
-        Alert a = new AdvorunDialog("", "DogRush: Þú tapaðir", s + " Viltu spila annan leik? ");
+        Alert a = new AdvorunDialog("", "DogRush", s + " Viltu spila annan leik? ");
         Optional<ButtonType> u = a.showAndWait();
         if (u.isPresent() && !u.get().getButtonData().isCancelButton())
             nyrLeikur();
@@ -317,27 +338,6 @@ public class GoldController {
     }
 
     /**
-     * Stöðvar leik og sýnir sigur Dialog.
-     */
-    public void sigur() {
-        stopTimi();
-        Platform.runLater(() -> synaSigur());
-    }
-
-    /**
-     * Spyr notanda hvort hann vilji leika annan leik. Hefur nýjan leik ef svo er.
-     * Annars er leiknum hætt.
-     */
-    private void synaSigur() {
-        Alert a = new SigurDialog();
-        Optional<ButtonType> u = a.showAndWait();
-        if (u.isPresent() && !u.get().getButtonData().isCancelButton())
-            nyrLeikur();
-        else
-            System.exit(0);
-    }
-
-    /**
      * Voffi rekst á bein og SuperDog power-up virkjast.
      */
     public void fannBein() {
@@ -382,14 +382,14 @@ public class GoldController {
      */
     public void erfidaleikaHandler(String s) {
         fxErfidleikaTexti.setText(s);
-        setGoldLengdTexti();
+        setErfidaleikaTexti();
     }
 
     /**
      * Breytir textum í notendaviðmótinu sem segir notenda hvaða
      * erfiðleikastig er valið og lengd niðurtalningu..
      */
-    public void setGoldLengdTexti() {
+    public void setErfidaleikaTexti() {
         if (fxErfidleikaTexti.getText().equals("Easy Edition")) {
             bendir = 0;
         } else if (fxErfidleikaTexti.getText().equals("Normal Edition")) {

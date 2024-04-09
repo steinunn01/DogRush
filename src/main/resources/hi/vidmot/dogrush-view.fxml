@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="640.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.vidmot.GoldController">
+<VBox prefHeight="500.0" prefWidth="640.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.vidmot.DogController">
     <children>
         <fx:include fx:id="menuStyring" source="menu-view.fxml" />
         <AnchorPane fx:id="fxAnchorPane" prefHeight="43.0" prefWidth="640.0" styleClass="titill">
@@ -49,7 +49,7 @@
         </BorderPane>
         <AnchorPane prefHeight="69.0" prefWidth="640.0" style="-fx-background-color: lightgrey;">
             <children>
-                <Label fx:id="fxRushTimi" alignment="CENTER" layoutX="489.0" layoutY="8.0" prefHeight="52.0" prefWidth="135.0" text="100 sek" textFill="#e5460b">
+                <Label fx:id="fxRushTimi" alignment="CENTER" layoutX="498.0" layoutY="8.0" prefHeight="52.0" prefWidth="126.0" textFill="#e5460b">
                     <font>
                         <Font size="30.0" />
                     </font>
@@ -59,7 +59,7 @@
                         <Font size="26.0" />
                     </font>
                 </Label>
-                <Label fx:id="fxStada" layoutX="330.0" layoutY="14.0" prefHeight="40.0" prefWidth="167.0" text="Leik lýkur eftir:">
+                <Label fx:id="fxStada" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="298.0" layoutY="14.0" prefHeight="40.0" prefWidth="199.0" text="Leik lýkur eftir:">
                     <font>
                         <Font size="26.0" />
                     </font>

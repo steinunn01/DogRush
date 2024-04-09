@@ -36,6 +36,7 @@ public class Klukka {
     public IntegerProperty nidurtalProperty() {
         return nidurtal;
     }
+
     public void start() {
         t.play();
     }
