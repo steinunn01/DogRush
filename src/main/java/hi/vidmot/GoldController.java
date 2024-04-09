@@ -157,7 +157,6 @@ public class GoldController {
                     }
                     Start = false;
                 }
-                // Action to be performed every second
                 if (klukka.getNidurtal() == 0) {
                     leikLokid("Æ æ, tíminn er búinn :( ");
                     klukka.stop(); // tíminn er búinn
