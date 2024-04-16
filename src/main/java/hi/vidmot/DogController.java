@@ -284,7 +284,7 @@ public class DogController {
     }
 
     /**
-     * Stöðvar leik og setur pásu á SuperDog niðurtalningu.
+     * Byrjar leik og SuperDog niðurtalning byrjar
      * ef hún var í gangi fyrir.
      */
     public void startTimi() {
@@ -297,7 +297,7 @@ public class DogController {
     }
 
     /**
-     * Byrjar leik og SuperDog niðurtalning byrjar
+     * Stöðvar leik og setur pásu á SuperDog niðurtalningu.
      * ef hún var í gangi fyrir.
      */
     public void stopTimi() {
@@ -374,8 +374,7 @@ public class DogController {
     public void erfidaleikaHandler(String s) {
         fxErfidleikaTexti.setText(s);
         setErfidaleikaTexti();
-        //byrjum nýjan leik ef það er nú þegar leikur í gangi
-        nyrLeikur();
+        nyrLeikur(); // byrjar sjálfkrafa nýjan leik
     }
 
     /**
