@@ -118,12 +118,17 @@ public class Voffi extends ImageView {
     public boolean erRusina(Rusina r) {
         return getBoundsInParent().intersects(r.getBoundsInParent());
     }
+    /**
+     * Athugar hvort stefna sé null.
+     */
+    public boolean isStefnaNull() {
+        return this.stefna == null;
+    }
 
     // getterar og setterar
     public void setStefna(Stefna stefna) {
         this.stefna = stefna;
     }
-
 
     public double getStefnaGradur() {
         return stefna.getGradur();

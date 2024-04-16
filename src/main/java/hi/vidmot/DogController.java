@@ -27,7 +27,7 @@ public class DogController {
 
     // fastar
     private int bendir = 0; // hvaða erfiðleikastig er valið [0;2]
-    private boolean Start = false; // pásutakki er Start takki við frumstillingu leiks
+    private boolean Start = false; // athugar hvort upphafsstilla þarf viðmotshluti
     private int[] RushTimi = {50, 30, 15}; // lengd leiks
     private int[] SigurSkor = {30, 26, 18}; // fjöldi stiga til að vinna leikk
 
@@ -60,7 +60,6 @@ public class DogController {
     private MenuController menuStyringController;
 
     private Timeline timeline;
-    private Timeline gulltime;
     private Leikur leikur;
     private Klukka klukka; // klukka fyrir leik
     private Klukka superklukka; // niðurtalning þangað til voffi hættir að færast hratt
@@ -121,11 +120,12 @@ public class DogController {
      */
     public void hefjaLeik() {
         timeline = new Timeline(); //búa til tímalínu fyrir voffa/hreyfingu voffa
-        gulltime = new Timeline(); //búa til tímalínu f framleiðslu gull og klukku niðurtal
         KeyFrame k = new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                fxLeikbord.afram();
+                if (!fxLeikbord.getVoffi().isStefnaNull())
+                    fxLeikbord.afram(); //klukka telur nidur á sekúndufresti
+
                 if (fxLeikbord.erGrefurGull()) {
                     fannGull();
                     framleidaGull(); // taka gull af leikbordi ef voffi rekst a það
@@ -136,14 +136,6 @@ public class DogController {
                 if (fxLeikbord.erGrefurRusina()) {
                     fannRusina();
                 }
-            }
-        });
-        timeline.getKeyFrames().add(k);
-        timeline.setCycleCount(Timeline.INDEFINITE);
-
-        KeyFrame gullk = new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
                 if (Start) {
                     for (int i = 0; i < 3; i++) {
                         framleidaRusina();
@@ -165,8 +157,8 @@ public class DogController {
                 }
             }
         });
-        gulltime.getKeyFrames().add(gullk);
-        gulltime.setCycleCount(Timeline.INDEFINITE);
+        timeline.getKeyFrames().add(k);
+        timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
     /**
@@ -182,7 +174,6 @@ public class DogController {
     public void pasuTakki() {
         if (fxPasa.getText().equals("Start")) {
             nyrLeikur();
-            startTimi();
             fxPasa.setText("||");
         }
         else if (fxPasa.getText().equals("||")) {
@@ -299,7 +290,6 @@ public class DogController {
     public void startTimi() {
         fxPasa.setText("||");
         timeline.play();
-        gulltime.play();
         klukka.start();
         if (fxLeikbord.erSuper) {
             superklukka.start();
@@ -312,7 +302,6 @@ public class DogController {
      */
     public void stopTimi() {
         timeline.stop();
-        gulltime.stop();
         klukka.stop();
         if (fxLeikbord.erSuper) {
             superklukka.stop();
@@ -376,13 +365,17 @@ public class DogController {
     /**
      * Breytir erfiðleikastigi.
      * Uppfærir notendaviðmótið svo notandi sér hvaða
-     * erfiðleikastig er valið
+     * erfiðleikastig er valið.
+     * Byrjar sjálfkrafa nýjan leik ef það er nú
+     * þegar leikur í gangi
      *
      * @param s strengur sem inniheldur heiti erfiðleikastigsins
      */
     public void erfidaleikaHandler(String s) {
         fxErfidleikaTexti.setText(s);
         setErfidaleikaTexti();
+        //byrjum nýjan leik ef það er nú þegar leikur í gangi
+        nyrLeikur();
     }
 
     /**
@@ -397,7 +390,6 @@ public class DogController {
         } else if (fxErfidleikaTexti.getText().equals("Hard Edition")) {
             bendir = 2;
         }
-        fxRushTimi.setText(RushTimi[bendir] + " sek");
     }
 
     /**

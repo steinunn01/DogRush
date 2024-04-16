@@ -164,7 +164,8 @@ public class Leikbord extends Pane {
     }
 
     /**
-     * Nýr leikur. Gulli eytt og upphafsstillt.
+     * Nýr leikur. Gulli, rúsínum og beini
+     * eytt og upphafsstillt.
      * Voffi settur á random stað
      */
     public void nyrLeikur() {

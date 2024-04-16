@@ -24,6 +24,6 @@ public class SigurDialog extends Alert {
      */
     public SigurDialog() {
         super(AlertType.NONE, "Viltu spila annan leik, meistari?", BTYPE, HTYPE);
-        setTitle("ÞÚ VANNST!!!");
+        setTitle("ÞÚ VANNST!");
     }
 }
