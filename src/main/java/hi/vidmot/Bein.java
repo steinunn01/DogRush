@@ -22,7 +22,7 @@ public class Bein extends ImageView {
     }
 
     /**
-     * Binda beinið við clip sem afmarkar hring
+     * Binda beinið við clip sem afmarkar ferning
      */
     private void bindaVidClip() {
         double r = ((Rectangle) getClip()).getWidth();

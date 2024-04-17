@@ -7,7 +7,7 @@ import javafx.scene.control.ButtonType;
 /******************************************************************************
  *  Author    : Sigurjón Grímsson, Steinunn María Bergþórsdóttir
  *
- *  Lýsing  : Útfærir um tilkynningar dialog sem kallað er á þegar notandi vinnur
+ *  Lýsing  : Útfærir tilkynningar dialog sem kallað er á þegar notandi vinnur
  *  leikinn.
  *****************************************************************************/
 public class SigurDialog extends Alert {

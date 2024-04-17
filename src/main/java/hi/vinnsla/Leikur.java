@@ -4,20 +4,16 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 /******************************************************************************
- *  Nafn    : Steinunn María Bergþórsdóttir
+ *  Nafn    : Sigurjón Grímsson, Steinunn María Bergþórsdóttir
  *
  *  Lýsing  :  Vinnsluklasi fyrir leikinn. Heldur utan um stigin og bætir við/
  *  dregur frá stig ef þess þarf.
  *****************************************************************************/
-public class Leikur {// stigatafla
-    private final IntegerProperty stigin = new SimpleIntegerProperty();
+public class Leikur {
+    private final IntegerProperty stigin = new SimpleIntegerProperty(); // stig leiks
 
     public IntegerProperty stiginProperty() {
         return stigin;
-    }
-
-    public int getStigin() {
-        return stigin.get();
     }
 
     public void haekkaStigin() {

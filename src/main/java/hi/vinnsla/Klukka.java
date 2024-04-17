@@ -9,9 +9,10 @@ import javafx.event.EventHandler;
 import javafx.util.Duration;
 
 /******************************************************************************
- *  Nafn    : Steinunn María Bergþórsdóttir
+ *  Nafn    : Sigurjón Grímsson, Steinunn María Bergþórsdóttir
  *
- *  Lýsing  :  Vinnsluklasi fyrir leikinn. Heldur utan um tímann og niðurtalningu
+ *  Lýsing  :  Vinnsluklasi fyrir leikinn.
+ *  Heldur utan um tímann og niðurtalningu
  *****************************************************************************/
 public class Klukka {
 

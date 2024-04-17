@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 import java.util.Random;
 
 /******************************************************************************
- *  Author    : Sigurjón Grímsson, Steinunn María Bergþórsdóttir
+ *  Nafn    : Sigurjón Grímsson, Steinunn María Bergþórsdóttir
  *
  *  Lýsing  :  Útfærir view fyrir voffa og er stýring fyrir voffa. Voffi færist áfram eftir
  *  stefnu.
@@ -16,7 +16,7 @@ public class Voffi extends ImageView {
     private static final String FXML_SKRA = "voffi-view.fxml";
     private static final Random random = new Random();
 
-    private Stefna stefna; // stefna boltans
+    private Stefna stefna; // stefna voffa
 
     public Voffi() {
         FXML_Lestur.lesa(this, FXML_SKRA);
@@ -25,6 +25,9 @@ public class Voffi extends ImageView {
         bindaVidClip();
     }
 
+    /**
+     * festir voffa við clip sem afmarkar ferning
+     */
     private void bindaVidClip() {
         double r = ((Rectangle) getClip()).getWidth();
         double r2 = ((Rectangle) getClip()).getHeight();
@@ -63,14 +66,11 @@ public class Voffi extends ImageView {
     public void athugaJadar(Leikbord p, double nextX, double nextY) {
         if (nextX  < 0) {
             nextX = 0;
-        }
-        if (nextX + getFitWidth() > p.getWidth()) {
+        } else if (nextX + getFitWidth() > p.getWidth()) {
             nextX = p.getWidth() - getFitWidth();
-        }
-        if (nextY < 0) {
+        } else if (nextY < 0) {
             nextY = 0;
-        }
-        if (nextY + getFitHeight() > p.getHeight()) {
+        } else if (nextY + getFitHeight() > p.getHeight()) {
             nextY = p.getHeight() - getFitHeight();
         }
         setX(nextX);
