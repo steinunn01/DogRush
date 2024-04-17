@@ -13,7 +13,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -151,8 +150,7 @@ public class DogController {
                     klukka.stop(); // tíminn er búinn
                 }
                 if (superklukka.getNidurtal() <= 0 && fxLeikbord.erSuper) {
-                    // superklukka er búinn
-                    stopSuperDog();
+                    stopSuperDog(); // superklukka er búinn
                     framleidaBein();
                 }
             }
@@ -366,8 +364,7 @@ public class DogController {
      * Breytir erfiðleikastigi.
      * Uppfærir notendaviðmótið svo notandi sér hvaða
      * erfiðleikastig er valið.
-     * Byrjar sjálfkrafa nýjan leik ef það er nú
-     * þegar leikur í gangi
+     * Byrjar sjálfkrafa nýjan leik.
      *
      * @param s strengur sem inniheldur heiti erfiðleikastigsins
      */
